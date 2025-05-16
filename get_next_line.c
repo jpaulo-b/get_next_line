@@ -6,7 +6,7 @@
 /*   By: jpaulo-b <jpaulo-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 10:28:52 by jpaulo-b          #+#    #+#             */
-/*   Updated: 2025/05/15 13:07:23 by jpaulo-b         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:47:16 by jpaulo-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*get_next_line(int fd)
 		if (bytes_read == -1 || buffer[0] == 0)
 		{
 			free(line);
-			//shift(buffer);
+			shift(buffer);
 			return (NULL);
 		}
 		if (!bytes_read)
@@ -40,7 +40,9 @@ char	*get_next_line(int fd)
 	shift(buffer);
 	return (line);
 }
-/*#include <stdio.h>
+/*#include <stdio.h>//  printf
+# include <fcntl.h>//  open; O_RDONLY
+
 int	main(void)
 {
 	char	*line;
